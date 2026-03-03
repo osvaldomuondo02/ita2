@@ -1,0 +1,47 @@
+plugins {
+    id("com.android.application")
+    id("com.google.gms.google-services")
+}
+
+android {
+    compileSdk 34
+    ndkVersion "25.1.8937393"
+
+    defaultConfig {
+        applicationId "com.urnm.congresso"
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName "1.0.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+}
+
+dependencies {
+    // Import the Firebase BoM
+    implementation(platform("com.google.firebase:firebase-bom:34.9.0"))
+
+    // Firebase services (versions managed by BoM)
+    implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.firebase:firebase-firestore")
+    implementation("com.google.firebase:firebase-storage")
+
+    // AndroidX
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    
+    // React Native (if needed for bridge modules)
+    implementation("com.facebook.react:react-android:0.74.0")
+    implementation("com.facebook.react:hermes-android:0.74.0")
+}
